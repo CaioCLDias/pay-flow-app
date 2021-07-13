@@ -12,3 +12,4 @@ Meu primeiro sistema flutter utilizando Fire Base
 - [Install VS Code](https://code.visualstudio.com/download) OR
 - [Install Android Studio](https://code.visualstudio.com/download)
 - [Clone Repostiroy](https://github.com/CaioCLDias/pay-flow-app.git)
+- Do you need create a firebase key [Fire Base](https://firebase.google.com/)
