@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "766281670049",
+    "project_id": "paylow-rocktseat-aula03",
+    "storage_bucket": "paylow-rocktseat-aula03.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:766281670049:android:4d0bca14b0a99165a33fe0",
+        "android_client_info": {
+          "package_name": "com.example.payflow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "766281670049-jn1hjralc8fqbr4qg4535gruqedpfq3a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.payflow",
+            "certificate_hash": "be93354c877de5503fdb7a58956d3393fb9645bb"
+          }
+        },
+        {
+          "client_id": "766281670049-64dqa09jaafm9ktu756uqg9ue0s4orhu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9lixD2WDbZpXeyah_Ga-vnvXxFCxoQBQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "766281670049-64dqa09jaafm9ktu756uqg9ue0s4orhu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
