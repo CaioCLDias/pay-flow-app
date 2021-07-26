@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:payflow/shared/themes/app_text_style.dart';
 import 'package:payflow/shared/themes/appcolors.dart';
 import 'package:payflow/shared/widgets/set_label_buttons/set_label_buttons.dart';
 
@@ -21,24 +22,58 @@ class ButtonSheetWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Container(
-        color: AppColors.shape,
-        child: Column(
-          children: [
-            Expanded(child: Container(color: Colors.black.withOpacity(0.6))),
-            Column(
+    return SafeArea(
+      child: RotatedBox(
+        quarterTurns: 1,
+        child: Material(
+          child: Container(
+            color: AppColors.shape,
+            child: Column(
               children: [
-                Text(title),
-                Text(subtitle),
-                SetLabelButtons(
-                    primaryLabel: primaryLabel,
-                    primaryOnPressed: primaryOnPressed,
-                    secondaryLabel: secondaryLabel,
-                    secondaryOnPressed: secondaryOnPressed)
+                Expanded(
+                    child: Container(
+                  color: Colors.black.withOpacity(0.6),
+                )),
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(40),
+                      child: Text.rich(
+                        TextSpan(
+                            text: title,
+                            style: TextStyles.buttonBoldHeading,
+                            children: [
+                              TextSpan(
+                                text: "\n$subtitle",
+                                style: TextStyles.buttonHeading,
+                              ),
+                            ]),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Divider(
+                          thickness: 1,
+                          color: AppColors.stroke,
+                        ),
+                        Container(
+                          height: 1,
+                          color: AppColors.stroke,
+                        )
+                      ],
+                    ),
+                    SetLabelButtons(
+                        enablePrimaryColor: true,
+                        primaryLabel: primaryLabel,
+                        primaryOnPressed: primaryOnPressed,
+                        secondaryLabel: secondaryLabel,
+                        secondaryOnPressed: secondaryOnPressed)
+                  ],
+                ),
               ],
             ),
-          ],
+          ),
         ),
       ),
     );
