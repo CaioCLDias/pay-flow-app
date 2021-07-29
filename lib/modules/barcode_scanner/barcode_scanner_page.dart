@@ -20,26 +20,22 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
   @override
   void initState() {
     controller.getAvailableCameras();
+    controller.statusNotifer.addListener(() {
+      if (controller.status.hasBarcode) {
+        Navigator.pushReplacementNamed(context, '/insert_boleto');
+      }
+    });
     super.initState();
   }
 
   @override
   void dispose() {
-    // TODO: implement dispose
+    controller.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    // return ButtonSheetWidget(
-    //   title: 'Não foi possível identificar um código de barras.',
-    //   subtitle: 'Tente escanear novamente ou digite o código do seu boleto.',
-    //   primaryLabel: 'Escanear Novamente',
-    //   primaryOnPressed: () {},
-    //   secondaryLabel: 'Digitar código',
-    //   secondaryOnPressed: () {},
-    // );
-
     return SafeArea(
       top: true,
       bottom: true,
@@ -62,6 +58,7 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
           RotatedBox(
             quarterTurns: 1,
             child: Scaffold(
+              backgroundColor: Colors.transparent,
               appBar: AppBar(
                 backgroundColor: Colors.black,
                 centerTitle: true,
@@ -92,6 +89,26 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
                 secondaryOnPressed: () {},
               ),
             ),
+          ),
+          ValueListenableBuilder<BarcodeScannerStatus>(
+            valueListenable: controller.statusNotifer,
+            builder: (_, status, __) {
+              if (status.hasError) {
+                return ButtonSheetWidget(
+                  title: 'Não foi possível identificar um código de barras.',
+                  subtitle:
+                      'Tente escanear novamente ou digite o código do seu boleto.',
+                  primaryLabel: 'Escanear Novamente',
+                  primaryOnPressed: () {
+                    controller.getAvailableCameras();
+                  },
+                  secondaryLabel: 'Digitar código',
+                  secondaryOnPressed: () {},
+                );
+              } else {
+                return Container();
+              }
+            },
           ),
         ],
       ),
