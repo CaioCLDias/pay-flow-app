@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:payflow/modules/barcode_scanner/barcode_scanner-status.dart';
+import 'package:payflow/modules/barcode_scanner/barcode_scanner_status.dart';
 import 'package:payflow/shared/themes/app_text_style.dart';
 import 'package:payflow/shared/themes/appcolors.dart';
 import 'package:payflow/shared/widgets/button_sheet_widget.dart/button_sheet_widget.dart';
